@@ -6,8 +6,10 @@ function onRender(event) {
   if (!window.rendered) {
     const {video, mimetype, track} = event.detail.args
 
-    sendValue({video: video, mimetype: mimetype, track: track})
-    window.rendered = true
+    if (video != "" && mimetype != "" && track != "") {
+      sendValue({video: video, mimetype: mimetype, track: track})
+      window.rendered = true
+    }
   }
 }
 

@@ -42,7 +42,6 @@ const Streamlit = {
         this.videoTracks().addTrack(track);
       });
     });
-    player.controlBar.progressControl.disable();
   },
   RENDER_EVENT: "streamlit:render",
   events: {
