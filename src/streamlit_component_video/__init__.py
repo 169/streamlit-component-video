@@ -46,16 +46,18 @@ def get_media_url(data: str, mimetype: str) -> str:
 
 
 def streamlit_component_video(
-    video: str | Path,
+    path: str | Path,
     mimetype: str,  # e.g. video/mp4
     track: str = None,
+    current_time: float = 0,
     key: str = None,
 ):
     """Create a new instance of "streamlit_component_video"."""
     component_value = _component_func(
-        video=get_media_url(video, mimetype),
+        path=get_media_url(path, mimetype),
         mimetype=mimetype,
         track=get_media_url(track, "text/vtt"),
+        current_time=current_time,
         key=key,
     )
 

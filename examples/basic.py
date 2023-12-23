@@ -8,7 +8,7 @@ from streamlit_component_video import streamlit_component_video
 
 st.write("## Example")
 video = streamlit_component_video(
-    video="./examples.mp4",
+    path="./examples.mp4",
     mimetype="video/mp4",
     track="./examples.vtt",
 )

@@ -7,7 +7,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setuptools.setup(
     name="streamlit-component-video",
-    version="0.2.0",
+    version="0.3.0",
     author="Bob Lin",
     author_email="bob401710@gmail.com",
     description="A new video with track",

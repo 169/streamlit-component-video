@@ -8,13 +8,13 @@ from streamlit_component_video import streamlit_component_video
 if 'video' not in st.session_state:
     st.session_state['video'] = {
         'mimetype': "video/mp4",
-        'video': "",
+        'path': "",
         'track': "",
     }
 
 def click_handler():
     st.session_state['video'] = dict(
-        video="./examples.mp4",
+        path="./examples.mp4",
         mimetype="video/mp4",
         track="./examples.vtt",
     )
@@ -22,7 +22,7 @@ def click_handler():
 st.write("## Example")
 st.button("Click", on_click=click_handler)
 video = streamlit_component_video(
-        video=st.session_state['video']['video'],
+        path=st.session_state['video']['path'],
         mimetype=st.session_state['video']['mimetype'],
         track=st.session_state['video']['track'],
     )

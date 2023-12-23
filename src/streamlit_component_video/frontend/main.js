@@ -4,10 +4,10 @@ function sendValue(value) {
 
 function onRender(event) {
   if (!window.rendered) {
-    const {video, mimetype, track} = event.detail.args
+    const {path, mimetype, track, current_time} = event.detail.args
 
-    if (video != "" && mimetype != "" && track != "") {
-      sendValue({video: video, mimetype: mimetype, track: track})
+    if (path != "" && mimetype != "" && track != "") {
+      sendValue({path: path, mimetype: mimetype, track: track, current_time: current_time})
       window.rendered = true
     }
   }

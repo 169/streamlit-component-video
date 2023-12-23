@@ -15,6 +15,7 @@ const Streamlit = {
   },
   setComponentValue: function(value) {
     sendMessageToStreamlitClient("streamlit:setComponentValue", {value: value});
+
     var options = {
       tracks: [{
         id: 'alternate-video-track',
@@ -25,16 +26,17 @@ const Streamlit = {
         mode: 'showing'
       }],
       sources: [{
-        src: value['video'],
+        src: value['path'],
         type: value['mimetype']
       }]
     };
     var player = videojs('my-player', options, function onPlayerReady() {
-      function myfun() {
-        console.log("myPlayer.currentTime()", this.currentTime());
+      function getCurrentTime() {
+        value['current_time'] = this.currentTime();
+        sendMessageToStreamlitClient("streamlit:setComponentValue", {value: value});
       }
 
-      this.on("timeupdate", myfun);
+      this.on("timeupdate", getCurrentTime);
 
       this.on('paused', function() {
         var track = options['tracks'][0];
