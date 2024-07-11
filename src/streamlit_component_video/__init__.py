@@ -46,7 +46,7 @@ def get_media_url(data: str, mimetype: str) -> str:
 
 
 def streamlit_component_video(
-    path: str | Path,
+    path: Union[str, Path],
     mimetype: str,  # e.g. video/mp4
     track: str = None,
     current_time: float = 0,
